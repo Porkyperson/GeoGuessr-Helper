@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GeoGuessr Filter Map</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+  <!-- Custom CSS -->
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    #map {
+      height: 100%;
+      width: 100%;
+    }
+
+    #filters {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 1000;
+      background-color: white;
+      padding: 12px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      font-size: 14px;
+      max-width: 250px;
+    }
+
+    #filters h2 {
+      margin-top: 0;
+      font-size: 16px;
+    }
+
+    label, select {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    select {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Filters Panel -->
+  <div id="filters">
+    <h2>Filters</h2>
+
+    <label><input type="checkbox" id="rightDrive"> Drives on Right</label>
+    <label><input type="checkbox" id="leftDrive"> Drives on Left</label>
+    <label><input type="checkbox" id="filter-inEU"> In European Union</label>
+
+    <label for="crosswalkCount">Crosswalk Lines:</label>
+    <select id="crosswalkCount">
+      <option value="">Any</option>
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+    </select>
+
+    <label for="chevronArrowColor">Chevron Arrow Color:</label>
+    <select id="chevronArrowColor">
+      <option value="">All</option>
+      <option value="#FF0000">Red</option>
+      <option value="#FFFFFF">White</option>
+      <option value="#FFFF00">Yellow</option>
+      <option value="#000000">Black</option>
+      <option value="#0000FF">Blue</option>
+    </select>
+
+    <label for="chevronBgColor">Chevron Background Color:</label>
+    <select id="chevronBgColor">
+      <option value="">All</option>
+      <option value="#FF0000">Red</option>
+      <option value="#FFFFFF">White</option>
+      <option value="#FFFF00">Yellow</option>
+      <option value="#000000">Black</option>
+      <option value="#0000FF">Blue</option>
+    </select>
+
+    <label for="plateColor">License Plate Color:</label>
+    <select id="plateColor">
+      <option value="">Any</option>
+      <option value="white">White</option>
+      <option value="white with blue strip">White with Blue Strip</option>
+      <option value="white with blue and yellow strip">White with Blue and Yellow Strip</option>
+      <option value="yellow">Yellow</option>
+      <option value="black">Black</option>
+      <option value="red">Red</option>
+      <option value="white with red and blue strip">White with Red and Blue Strip</option>
+      <option value="white with two blue strips">White with Two Blue Strips</option>
+      <option value="white with red text">White with Red Text</option>
+      <option value="white with green">White with Green</option>
+      <option value="white and yellow">White and Yellow</option>
+    </select>
+
+    <button id="clearFilters">Clear Filters</button>
+
+  </div>
+
+  <!-- Map Container -->
+  <div id="map"></div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <!-- Main Script -->
+  <script src="script.js"></script>
+</body>
+</html>
